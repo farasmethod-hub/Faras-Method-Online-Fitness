@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* OFFICIAL 6-COLOR PALETTE FOR FARAS METHOD */
+    --color-deep-black: #06141B;
+    --color-dark-navy: #11212D;
+    --color-blue-gray: #253745;
+    --color-slate-gray: #4A5C6A;
+    --color-light-gray: #9BA8AB;
+    --color-off-white: #CCD0CF;
+
+    /* Semantic mappings */
+    --bg-main: var(--color-deep-black);
+    --bg-surface: var(--color-dark-navy);
+    --bg-secondary: var(--color-blue-gray);
+    --border-element: var(--color-slate-gray);
+    --text-muted: var(--color-light-gray);
+    --text-main: var(--color-off-white);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #06141B;
+    color: #CCD0CF;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  body {
+    background-color: #06141B;
+    color: #CCD0CF;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Custom Clean Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #06141B;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #253745;
+    border-radius: 4px;
+    border: 1px solid #4A5C6A;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4A5C6A;
+  }
+}
+
+/* ====================================================================
+   OFFICIAL FARAS METHOD BRAND STYLES (Apple iOS-Inspired Glassmorphism)
+   ==================================================================== */
+
+/* Premium iOS Glass Panels & Cards */
+.ios-glass,
+.glass-card,
+.liquid-glass-card {
+  position: relative;
+  background: rgba(17, 33, 45, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(204, 208, 207, 0.12);
+  box-shadow: inset 0 1px 1px 0 rgba(204, 208, 207, 0.16), 0 20px 40px -15px rgba(6, 20, 27, 0.75);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.ios-glass-interactive:hover,
+.glass-card:hover,
+.liquid-glass-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(204, 208, 207, 0.28);
+  box-shadow: inset 0 1px 1px 0 rgba(204, 208, 207, 0.24), 0 26px 50px -12px rgba(6, 20, 27, 0.9);
+  background: rgba(25, 42, 56, 0.78);
+}
+
+.ios-glass-interactive:active,
+.glass-card:active,
+.liquid-glass-card:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* Translucent iOS Pill / Badge */
+.ios-glass-pill {
+  background: rgba(37, 55, 69, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(204, 208, 207, 0.15);
+  box-shadow: inset 0 1px 0 rgba(204, 208, 207, 0.12), 0 4px 12px rgba(6, 20, 27, 0.35);
+  border-radius: 9999px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ios-glass-pill:hover {
+  background: rgba(37, 55, 69, 0.85);
+  border-color: rgba(204, 208, 207, 0.28);
+}
+
+/* Header & Floating Navigation */
+.liquid-nav-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  border-radius: 9999px;
+  background: rgba(17, 33, 45, 0.75);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(204, 208, 207, 0.14);
+  box-shadow: inset 0 1px 1px rgba(204, 208, 207, 0.18), 0 20px 45px rgba(6, 20, 27, 0.8);
+  will-change: transform;
+  touch-action: none;
+  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-lens {
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  bottom: 5px;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: rgba(37, 55, 69, 0.85);
+  border: 1px solid rgba(204, 208, 207, 0.22);
+  box-shadow: inset 0 1px 0 rgba(204, 208, 207, 0.2), 0 2px 10px rgba(0, 0, 0, 0.4);
+  will-change: transform, width;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), width 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-nav-item {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  color: #9BA8AB;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease;
+}
+
+.liquid-nav-item:hover,
+.liquid-nav-item.active {
+  color: #CCD0CF;
+}
+
+/* ====================================================================
+   OFFICIAL BRAND BUTTONS (Apple iOS Tactile Spring States)
+   - Primary: #CCD0CF with specular glow & tactile press
+   - Secondary: Translucent Glass with soft border
+   ==================================================================== */
+
+.liquid-glass-btn {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.liquid-glass-btn-primary {
+  background: #CCD0CF;
+  color: #06141B;
+  border: 1px solid #CCD0CF;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.liquid-glass-btn-primary:hover {
+  background: #FFFFFF;
+  color: #06141B;
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 10px 24px rgba(204, 208, 207, 0.25);
+}
+
+.liquid-glass-btn-primary:active {
+  transform: translateY(0) scale(0.975);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.liquid-glass-btn-secondary {
+  background: rgba(37, 55, 69, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #CCD0CF;
+  border: 1px solid rgba(204, 208, 207, 0.18);
+  box-shadow: inset 0 1px 0 rgba(204, 208, 207, 0.15), 0 6px 18px rgba(6, 20, 27, 0.5);
+}
+
+.liquid-glass-btn-secondary:hover {
+  background: rgba(37, 55, 69, 0.95);
+  color: #FFFFFF;
+  border-color: rgba(204, 208, 207, 0.35);
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 10px 24px rgba(6, 20, 27, 0.7);
+}
+
+.liquid-glass-btn-secondary:active {
+  transform: translateY(0) scale(0.975);
+}
+
+.liquid-glass-btn-whatsapp {
+  background: #25D366;
+  color: #06141B;
+  border: 1px solid #25D366;
+  font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 8px 22px rgba(37, 211, 102, 0.35);
+}
+
+.liquid-glass-btn-whatsapp:hover {
+  background: #22c55e;
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 12px 28px rgba(37, 211, 102, 0.45);
+}
+
+.liquid-glass-btn-whatsapp:active {
+  transform: translateY(0) scale(0.975);
+}
+
+/* Subtle iOS Ambient Depth Mesh (Ultra lightweight, GPU friendly) */
+.ios-ambient-depth {
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37, 55, 69, 0.25) 0%, transparent 70%);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ====================================================================
+   TYPOGRAPHY
+   ==================================================================== */
+
+.heading-font {
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #CCD0CF;
+}
+
+/* Before/After range slider thumb */
+input[type=range]::-webkit-slider-thumb {
+  pointer-events: all;
+  width: 28px;
+  height: 28px;
+  -webkit-appearance: none;
+  background: #CCD0CF;
+  border-radius: 50%;
+  cursor: ew-resize;
+  border: 3px solid #06141B;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}

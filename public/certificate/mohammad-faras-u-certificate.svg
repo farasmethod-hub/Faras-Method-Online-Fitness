@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" width="1200" height="850">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#FFF2A3"/>
+      <stop offset="100%" stop-color="#AA771C"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a1b24"/>
+      <stop offset="100%" stop-color="#041217"/>
+    </linearGradient>
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+    <radialGradient id="sealGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE885"/>
+      <stop offset="70%" stop-color="#B8860B"/>
+      <stop offset="100%" stop-color="#7B5B00"/>
+    </radialGradient>
+    <pattern id="guilloche" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M0 20 Q10 0 20 20 T40 20 M20 0 Q30 20 20 40 T20 0" fill="none" stroke="rgba(56, 189, 248, 0.04)" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="850" fill="url(#bgGrad)"/>
+  <rect width="1200" height="850" fill="url(#guilloche)"/>
+
+  <!-- Outer Security Border -->
+  <rect x="25" y="25" width="1150" height="800" rx="16" fill="none" stroke="url(#borderGrad)" stroke-width="3"/>
+  <rect x="35" y="35" width="1130" height="780" rx="12" fill="none" stroke="#253745" stroke-width="1.5"/>
+  <rect x="42" y="42" width="1116" height="766" rx="8" fill="none" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- Corner Ornamental Accents -->
+  <!-- Top Left -->
+  <path d="M35 70 L70 35 M35 85 L85 35 M35 100 L100 35" stroke="url(#goldGrad)" stroke-width="1.5" fill="none"/>
+  <circle cx="55" cy="55" r="4" fill="#38BDF8"/>
+  <!-- Top Right -->
+  <path d="M1165 70 L1130 35 M1165 85 L1115 35 M1165 100 L1100 35" stroke="url(#goldGrad)" stroke-width="1.5" fill="none"/>
+  <circle cx="1145" cy="55" r="4" fill="#38BDF8"/>
+  <!-- Bottom Left -->
+  <path d="M35 780 L70 815 M35 765 L85 815 M35 750 L100 815" stroke="url(#goldGrad)" stroke-width="1.5" fill="none"/>
+  <circle cx="55" cy="795" r="4" fill="#38BDF8"/>
+  <!-- Bottom Right -->
+  <path d="M1165 780 L1130 815 M1165 765 L1115 815 M1165 750 L1100 815" stroke="url(#goldGrad)" stroke-width="1.5" fill="none"/>
+  <circle cx="1145" cy="795" r="4" fill="#38BDF8"/>
+
+  <!-- Header Branding & National Emblem Reference -->
+  <g transform="translate(600, 95)" text-anchor="middle">
+    <text font-family="'Inter', sans-serif" font-size="12" font-weight="700" letter-spacing="4" fill="#38BDF8" text-transform="uppercase">
+      SKILL INDIA • NATIONAL SKILL DEVELOPMENT CORRIDOR
+    </text>
+    <text y="28" font-family="'Inter', sans-serif" font-size="16" font-weight="800" letter-spacing="2" fill="#CCD0CF" text-transform="uppercase">
+      Sports, Physical Education, Fitness &amp; Leisure Skills Council (SPEFL-SC)
+    </text>
+    <text y="48" font-family="'Inter', sans-serif" font-size="11" font-weight="500" letter-spacing="1.5" fill="#9BA8AB">
+      Conforming to National Occupational Standards (NOS) &amp; NSQF Level 4
+    </text>
+  </g>
+
+  <!-- Divider Line with Diamond -->
+  <line x1="300" y1="170" x2="570" y2="170" stroke="url(#goldGrad)" stroke-width="1.5"/>
+  <polygon points="600,165 607,170 600,175 593,170" fill="#D4AF37"/>
+  <line x1="630" y1="170" x2="900" y2="170" stroke="url(#goldGrad)" stroke-width="1.5"/>
+
+  <!-- Certificate Title -->
+  <text x="600" y="215" text-anchor="middle" font-family="'Oswald', sans-serif" font-size="34" font-weight="700" letter-spacing="3" fill="url(#goldGrad)">
+    CERTIFICATE OF QUALIFICATION
+  </text>
+
+  <text x="600" y="250" text-anchor="middle" font-family="'Inter', sans-serif" font-size="14" font-weight="500" letter-spacing="2" fill="#9BA8AB" text-transform="uppercase">
+    This is to certify that
+  </text>
+
+  <!-- Candidate Name -->
+  <text x="600" y="315" text-anchor="middle" font-family="'Oswald', sans-serif" font-size="44" font-weight="700" letter-spacing="2" fill="#FFFFFF">
+    MOHAMMAD FARAS U
+  </text>
+  <line x1="350" y1="332" x2="850" y2="332" stroke="#38BDF8" stroke-width="1.5"/>
+
+  <!-- Qualification Body -->
+  <text x="600" y="370" text-anchor="middle" font-family="'Inter', sans-serif" font-size="14" font-weight="400" fill="#CCD0CF">
+    has successfully cleared the national assessment for the qualification of
+  </text>
+
+  <!-- Qualification Title -->
+  <rect x="360" y="395" width="480" height="52" rx="10" fill="#11212D" stroke="url(#goldGrad)" stroke-width="1.5"/>
+  <text x="600" y="430" text-anchor="middle" font-family="'Oswald', sans-serif" font-size="26" font-weight="700" letter-spacing="2" fill="#38BDF8">
+    GENERAL FITNESS TRAINER
+  </text>
+
+  <!-- Qualification Details Grid -->
+  <g transform="translate(600, 485)" text-anchor="middle">
+    <rect x="-380" y="0" width="760" height="95" rx="12" fill="#06141B" stroke="#253745" stroke-width="1"/>
+
+    <!-- Column 1: Qualification Code -->
+    <text x="-260" y="30" font-family="'Inter', sans-serif" font-size="10" font-weight="700" letter-spacing="1.5" fill="#9BA8AB" text-transform="uppercase">
+      Qualification Code
+    </text>
+    <text x="-260" y="55" font-family="'Oswald', sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">
+      SPF/Q1107
+    </text>
+    <text x="-260" y="75" font-family="'Inter', sans-serif" font-size="9" font-weight="500" fill="#38BDF8">
+      National Standard
+    </text>
+
+    <!-- Column 2: NSQF Level -->
+    <text x="-85" y="30" font-family="'Inter', sans-serif" font-size="10" font-weight="700" letter-spacing="1.5" fill="#9BA8AB" text-transform="uppercase">
+      NSQF Level
+    </text>
+    <text x="-85" y="55" font-family="'Oswald', sans-serif" font-size="18" font-weight="700" fill="#D4AF37">
+      LEVEL 4
+    </text>
+    <text x="-85" y="75" font-family="'Inter', sans-serif" font-size="9" font-weight="500" fill="#CCD0CF">
+      Conforming Standard
+    </text>
+
+    <!-- Column 3: Assessment Status -->
+    <text x="90" y="30" font-family="'Inter', sans-serif" font-size="10" font-weight="700" letter-spacing="1.5" fill="#9BA8AB" text-transform="uppercase">
+      Assessment Status
+    </text>
+    <text x="90" y="55" font-family="'Oswald', sans-serif" font-size="18" font-weight="700" fill="#34D399">
+      CLEARED
+    </text>
+    <text x="90" y="75" font-family="'Inter', sans-serif" font-size="9" font-weight="500" fill="#34D399">
+      Successfully Verified
+    </text>
+
+    <!-- Column 4: Date of Issue -->
+    <text x="265" y="30" font-family="'Inter', sans-serif" font-size="10" font-weight="700" letter-spacing="1.5" fill="#9BA8AB" text-transform="uppercase">
+      Date of Issue
+    </text>
+    <text x="265" y="55" font-family="'Oswald', sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">
+      29 APRIL 2026
+    </text>
+    <text x="265" y="75" font-family="'Inter', sans-serif" font-size="9" font-weight="500" fill="#9BA8AB">
+      Official Issuance
+    </text>
+  </g>
+
+  <!-- Gold Seal Emblem -->
+  <g transform="translate(600, 665)">
+    <!-- Rosette Teeth -->
+    <circle cx="0" cy="0" r="48" fill="url(#sealGlow)" stroke="#FFF2A3" stroke-width="2"/>
+    <circle cx="0" cy="0" r="40" fill="none" stroke="#7B5B00" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <text x="0" y="-12" text-anchor="middle" font-family="'Inter', sans-serif" font-size="8" font-weight="800" letter-spacing="1.5" fill="#0a1b24" text-transform="uppercase">
+      SPEFL-SC
+    </text>
+    <text x="0" y="6" text-anchor="middle" font-family="'Oswald', sans-serif" font-size="14" font-weight="700" fill="#0a1b24">
+      LEVEL 4
+    </text>
+    <text x="0" y="20" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" font-weight="800" letter-spacing="1" fill="#0a1b24" text-transform="uppercase">
+      VERIFIED
+    </text>
+  </g>
+
+  <!-- Footer Signatures & Sector Council Authority -->
+  <!-- Left Side: Sector Council Seal & Validation -->
+  <g transform="translate(180, 720)">
+    <line x1="0" y1="0" x2="220" y2="0" stroke="#4A5C6A" stroke-width="1"/>
+    <text x="110" y="18" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#CCD0CF">
+      SPEFL-SC Authority
+    </text>
+    <text x="110" y="32" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" fill="#9BA8AB">
+      Sector Skill Council
+    </text>
+  </g>
+
+  <!-- Right Side: National Standards Competency -->
+  <g transform="translate(800, 720)">
+    <line x1="0" y1="0" x2="220" y2="0" stroke="#4A5C6A" stroke-width="1"/>
+    <text x="110" y="18" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#CCD0CF">
+      National Occupational Standards
+    </text>
+    <text x="110" y="32" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" fill="#9BA8AB">
+      Assessment &amp; Certification
+    </text>
+  </g>
+
+  <!-- Bottom Verification Badge Note -->
+  <text x="600" y="785" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="500" letter-spacing="1" fill="#4A5C6A">
+    OFFICIAL CREDENTIAL • CONFORMS TO LEVEL 4 NATIONAL OCCUPATIONAL STANDARDS • VERIFIED RECORD
+  </text>
+</svg>
+
