@@ -162,6 +162,33 @@ export function Footer() {
             <ChevronUp className="w-4 h-4" />
           </button>
         </div>
+
+        {/* Developer Credit */}
+        <div className="mt-6 pt-5 border-t border-[#4A5C6A]/25 flex items-center justify-center">
+          <div className="inline-flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5 px-4 py-2 rounded-full bg-[#11212D]/60 border border-[#4A5C6A]/30 backdrop-blur-md text-[11px] text-[#9BA8AB] shadow-sm">
+            <span>Designed &amp; Developed by</span>
+            <a
+              href="https://www.instagram.com/_aasshfaakk_/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[#CCD0CF] hover:text-white transition-colors duration-200 tracking-wide underline-offset-4 hover:underline"
+            >
+              MUHAMMED ASHFAK O
+            </a>
+            <span className="text-[#4A5C6A] hidden sm:inline" aria-hidden="true">•</span>
+            <a
+              href="https://www.instagram.com/_aasshfaakk_/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[#9BA8AB] hover:text-[#CCD0CF] transition-colors duration-200 group"
+            >
+              <InstagramIcon className="w-3.5 h-3.5 text-[#9BA8AB] group-hover:text-emerald-400 transition-colors" />
+              <span>
+                Instagram: <span className="font-medium text-[#CCD0CF] group-hover:text-emerald-400 transition-colors">@_aasshfaakk_</span>
+              </span>
+            </a>
+          </div>
+        </div>
       </Container>
     </footer>
   );

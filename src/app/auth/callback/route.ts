@@ -23,3 +23,4 @@ export async function GET(request: Request) {
   // Redirect to login if code exchange failed or expired
   return NextResponse.redirect(`${origin}/admin/login?error=auth_callback_failed`);
 }
+
