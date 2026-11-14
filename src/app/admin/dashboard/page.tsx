@@ -48,6 +48,7 @@ import { TransformationPhotoAdjuster, DEFAULT_FIT_SETTINGS } from "@/components/
 import { TransformationCardLivePreview } from "@/components/admin/TransformationCardLivePreview";
 import { InstagramIcon } from "@/components/shared/InstagramIcon";
 import { useFitnessStore, BookingLead, TrainerProfile, ClientRecord, MediaAsset, InstagramPostItem } from "@/lib/store";
+import { createClient } from "@/lib/supabase/client";
 import { Package, Transformation, Article, Testimonial, FAQItem, Announcement } from "@/types";
 import { ServiceItem } from "@/data/services";
 import { formatCurrency, formatDate } from "@/lib/utils";
@@ -220,7 +221,15 @@ export default function AdminDashboardPage() {
     }
   }, [router]);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    try {
+      const supabase = createClient();
+      if (supabase) {
+        await supabase.auth.signOut();
+      }
+    } catch (err) {
+      console.warn("Supabase signout failed:", err);
+    }
     if (typeof window !== "undefined") {
       localStorage.removeItem("faras_method_admin_auth");
       localStorage.removeItem("faras_method_admin_user");

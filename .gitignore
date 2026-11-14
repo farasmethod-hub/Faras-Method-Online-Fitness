@@ -48,3 +48,6 @@ test_direct.js
 
 .vercel
 .env*
+
+supabase/.temp/
+

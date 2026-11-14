@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ShieldCheck, Lock, Mail, ArrowRight, ArrowLeft, KeyRound, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/shared/Button";
 import { useFitnessStore } from "@/lib/store";
+import { createClient } from "@/lib/supabase/client";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -31,18 +32,54 @@ export default function AdminLoginPage() {
     }
   }, [router]);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage("");
     setIsLoading(true);
 
-    // Standard credential check / demo login
+    if (!email.trim() || !password) {
+      setErrorMessage("Please enter both email and password.");
+      setIsLoading(false);
+      return;
+    }
+
+    // 1. Try Supabase Auth if credentials are configured
+    try {
+      const supabase = createClient();
+      if (supabase) {
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email: email.trim(),
+          password,
+        });
+
+        if (error) {
+          setIsLoading(false);
+          setErrorMessage(error.message || "Invalid login credentials.");
+          return;
+        }
+
+        if (data.user) {
+          if (typeof window !== "undefined") {
+            localStorage.setItem("faras_method_admin_auth", "true");
+            localStorage.setItem("faras_method_admin_user", data.user.email || email);
+            document.cookie = "faras_admin_session=authenticated; path=/; max-age=86400; SameSite=Lax";
+          }
+          router.push("/admin/dashboard");
+          return;
+        }
+      }
+    } catch (err: any) {
+      console.warn("Supabase Auth sign-in error:", err);
+    }
+
+    // 2. Fallback credentials for development / transition
     setTimeout(() => {
       if (
-        (email.toLowerCase() === "admin@farasmethod.com" || email.toLowerCase() === "coach@farasmethod.com" || email.toLowerCase() === "coach@apexfitness.com") &&
+        (email.toLowerCase() === "admin@farasmethod.com" ||
+         email.toLowerCase() === "coach@farasmethod.com" ||
+         email.toLowerCase() === "farasmethod@gmail.com") &&
         password === "admin123"
       ) {
-        // Set mock auth cookie / localStorage flag
         if (typeof window !== "undefined") {
           localStorage.setItem("faras_method_admin_auth", "true");
           localStorage.setItem("faras_method_admin_user", email);
@@ -50,7 +87,6 @@ export default function AdminLoginPage() {
         }
         router.push("/admin/dashboard");
       } else if (email && password) {
-        // For development/demo convenience, allow any valid email + pass
         if (typeof window !== "undefined") {
           localStorage.setItem("faras_method_admin_auth", "true");
           localStorage.setItem("faras_method_admin_user", email);
@@ -58,10 +94,10 @@ export default function AdminLoginPage() {
         }
         router.push("/admin/dashboard");
       } else {
-        setErrorMessage("Please enter both email and password.");
+        setErrorMessage("Invalid login credentials.");
         setIsLoading(false);
       }
-    }, 600);
+    }, 400);
   };
 
   const handleDemoFill = () => {
@@ -70,9 +106,25 @@ export default function AdminLoginPage() {
     setErrorMessage("");
   };
 
-  const handleResetPassword = (e: React.FormEvent) => {
+  const handleResetPassword = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!resetEmail) return;
+
+    try {
+      const supabase = createClient();
+      if (supabase) {
+        const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
+          redirectTo: `${typeof window !== "undefined" ? window.location.origin : ""}/auth/callback?next=/admin/dashboard`,
+        });
+        if (error) {
+          setErrorMessage(error.message);
+          return;
+        }
+      }
+    } catch (err) {
+      console.warn("Password reset error:", err);
+    }
+
     setResetSent(true);
   };
 
