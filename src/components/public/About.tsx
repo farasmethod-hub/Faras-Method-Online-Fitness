@@ -39,42 +39,51 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Trainer Portrait & Transformation Badge Frame */}
           <div className="lg:col-span-5 relative space-y-6">
-            <div className="relative mx-auto max-w-md lg:max-w-none aspect-[4/5] rounded-3xl overflow-hidden border border-[rgba(204,208,207,0.18)] shadow-2xl shadow-black/80 group bg-[#11212D] p-0">
+            <div className="relative mx-auto max-w-md lg:max-w-none aspect-[4/5] min-h-[460px] sm:min-h-[520px] rounded-3xl overflow-hidden border border-[rgba(204,208,207,0.18)] shadow-2xl shadow-black/80 group bg-[#11212D] p-0">
               <Image
                 src={trainer.photoUrl || "/photos/faras-after-1.jpeg"}
                 alt={trainer.name}
                 fill
+                priority
                 className="object-cover object-top filter brightness-95 group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#06141B] via-transparent to-transparent opacity-85" />
+              {/* Subtle gradient at the bottom so text is crisp without darkening Faras's face */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#06141B] via-[#06141B]/40 to-transparent" />
 
-              {/* Floating Transformation Pill */}
-              <div className="absolute top-4 left-4 right-4 p-3 rounded-2xl ios-glass border border-[rgba(204,208,207,0.18)] flex items-center justify-between shadow-xl">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-[#253745] flex items-center justify-center text-[#CCD0CF]">
-                    <TrendingUp className="w-4 h-4 text-emerald-400" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-[#9BA8AB] block">Personal Progress</span>
-                    <strong className="heading-font text-xs text-[#CCD0CF]">
-                      {trainer.startingWeight || "56 KG"} → {trainer.currentWeight || "69 KG"} ({trainer.weightGained ? `+${trainer.weightGained}` : "+13 KG"})
-                    </strong>
-                  </div>
-                </div>
-                <span className="px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-emerald-950/70 text-emerald-300 border border-emerald-500/30">
-                  Natural
+              {/* Clean Non-Obtrusive Top Status Badges */}
+              <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
+                <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#06141B]/85 backdrop-blur-md text-[#CCD0CF] border border-[rgba(204,208,207,0.2)] shadow-lg">
+                  Level 4 Certified
+                </span>
+                <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-950/85 backdrop-blur-md text-emerald-300 border border-emerald-500/30 shadow-lg">
+                  100% Natural
                 </span>
               </div>
 
-              {/* Bottom Coach Identity */}
-              <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl ios-glass border border-[rgba(204,208,207,0.18)] flex items-center justify-between shadow-xl">
-                <div>
-                  <p className="heading-font text-lg font-bold text-[#CCD0CF] uppercase">{trainer.fullName || "Mohammad Faras U"}</p>
-                  <p className="text-xs text-[#CCD0CF] font-semibold">{trainer.professionalTitle || "Online Fitness Coach"}</p>
-                  <p className="text-[10px] text-[#9BA8AB] mt-0.5">{trainer.experienceYears || "4+ Years"} Dedicated Experience</p>
+              {/* Unified Bottom Coach Identity & Progress Card - Never overlapping the portrait */}
+              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-[#11212D]/90 backdrop-blur-xl border border-[rgba(204,208,207,0.18)] shadow-2xl z-10 space-y-2.5">
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <h3 className="heading-font text-lg sm:text-xl font-bold text-[#CCD0CF] uppercase tracking-wide leading-tight">
+                      {trainer.fullName || "Mohammad Faras U"}
+                    </h3>
+                    <p className="text-xs text-[#9BA8AB] font-medium mt-0.5">
+                      {trainer.professionalTitle || "Online Fitness Coach"} • {trainer.experienceYears || "4+ Years"} Dedicated
+                    </p>
+                  </div>
+                  <div className="w-9 h-9 rounded-xl bg-[#253745] border border-[rgba(204,208,207,0.18)] flex items-center justify-center text-emerald-400 shrink-0 shadow-md">
+                    <Award className="w-4 h-4" />
+                  </div>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-[#253745] border border-[rgba(204,208,207,0.18)] flex items-center justify-center text-[#CCD0CF]">
-                  <Award className="w-5 h-5" />
+
+                <div className="pt-2 border-t border-[rgba(204,208,207,0.12)] flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-1.5 text-[#9BA8AB]">
+                    <TrendingUp className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span className="text-[11px] font-semibold text-[#CCD0CF]">Personal Journey:</span>
+                  </div>
+                  <strong className="heading-font text-xs text-emerald-400 tracking-wide font-bold">
+                    {trainer.startingWeight || "56 KG"} → {trainer.currentWeight || "69 KG"} ({trainer.weightGained ? `+${trainer.weightGained}` : "+13 KG"})
+                  </strong>
                 </div>
               </div>
             </div>

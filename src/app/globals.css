@@ -59,7 +59,6 @@
 .ios-glass,
 .glass-card,
 .liquid-glass-card {
-  position: relative;
   background: rgba(17, 33, 45, 0.75);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
