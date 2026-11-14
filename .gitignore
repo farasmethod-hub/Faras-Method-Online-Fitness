@@ -45,3 +45,6 @@ ehthumbs.db
 test_*.js
 test_audit.js
 test_direct.js
+
+.vercel
+.env*
